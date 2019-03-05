@@ -1,0 +1,17 @@
+/*
+* Determines the hours of the day of whether the dog will wake the owner up in the middle of the night.
+*/
+
+public class BarkingDog {
+    public static boolean shouldWakeUp(boolean barking, int hourOfDay) {
+        if (barking == true) {
+            if (hourOfDay < 0 || hourOfDay > 23) {
+                return false;
+            }
+            else if (hourOfDay < 8 || hourOfDay > 22) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
