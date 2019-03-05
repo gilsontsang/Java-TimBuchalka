@@ -1,0 +1,15 @@
+/*
+* Determining whether two numbers are equal by three decimal places.
+*/
+
+public class DecimalComparator{
+ public static boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
+     double diff = Math.abs(firstNum - secondNum);
+     if (diff <= 0.0009) {
+         return true;
+     }
+     else {
+         return false;
+     }
+ }
+}
