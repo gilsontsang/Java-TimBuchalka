@@ -1,0 +1,32 @@
+/*
+* The code below creates a diagonal star. This took 2 hours... The code itself is easy, but the concept is difficult to grasp.
+*/
+
+public class DiagonalStar {
+    public static void printSquareStar(int number) {
+        if (number < 5) {
+            System.out.println("Invalid Value");
+        }
+        else {
+            for (int i = 1; i <= number; i++) {
+                for (int j = 1; j <= number; j++)
+                    if (i == 1 || i == number) {
+                        System.out.print("*");
+                    }
+                    else if (j == 1 || j == number) {
+                        System.out.print("*");
+                    }
+                    else if (j == i) {
+                        System.out.print("*");
+                    }
+                    else if (j == number - i + 1) {
+                            System.out.print ( "*" );
+                        }
+                    else {
+                        System.out.print(" ");
+                    }
+                System.out.println();
+            }
+        }
+    }
+}
