@@ -1,0 +1,21 @@
+/*
+* I got stuck on this for a while... eventually with the help of others and modifying their solution, we came up with the below.
+* I am curious how the super computers are calculating this at the Universities... I will research later.
+*/
+
+public class LargestPrime {
+    public static int getLargestPrime(int number) {
+        if (number <= 1) {
+            return -1;
+        }
+        for (int i = 2; i < number; i++) {
+            while (number % i == 0) {
+                number = number / i;
+                if (number == 2) {
+                    i++;
+                }
+            }
+        }
+        return number;
+    }
+}
