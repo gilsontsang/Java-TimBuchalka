@@ -3,6 +3,7 @@
 * have seperate classes that handles different functions and then have a calculator that combines all of the classes.
 */
 
+// Class Floor
 public class Floor {
     private double width;
     private double length;
@@ -22,5 +23,39 @@ public class Floor {
     
     public double getArea() {
         return width * length;
+    }
+}
+
+// Class Carpet
+
+public class Carpet {
+    private double cost;
+    
+    public Carpet(double cost) {
+        if (cost < 0) {
+            this.cost = 0;
+        } else {
+            this.cost = cost;
+        }
+    }
+    
+    public double getCost() {
+        return cost;
+    }
+}
+
+// Class Calculator
+
+public class Calculator {
+    private Floor floor;
+    private Carpet carpet;
+    
+    public Calculator(Floor floor, Carpet carpet) {
+        this.floor = floor;
+        this.carpet = carpet;
+    }
+    
+    public double getTotalCost() {
+        return floor.getArea() * carpet.getCost();
     }
 }
