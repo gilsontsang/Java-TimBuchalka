@@ -1,3 +1,36 @@
 /*
-* editHere for Composition
+* Composition has a similar idea to Inheritance such that there are relations between Classes but the overall concept
+* is very different. Inheritance has a parent and child relationship, whereas Composition has a central Class that 
+* does not have relationships with its' partner Classes aside from borrow those partner's methods and variables.
+*
+* An example of Inheritance. Animal (parent of Mammals) -> Mammals (parent of Dog/ child of Animal) -> Dog (child of Mammal)
+*
+* An example of Composition. 
+* -> Computer (central Class)
+* -> Motherboard (partner Class of Computer Class)
+* -> Ram (partner Class of Computer Class)
+* -> Case (partner Class of Computer Class)
+* **Notice Motherboard, Ram and Case are not children of Computer, they do not share the traits of Computer, these Classes
+*   are simply the components of Computer (Computer's 'composition')
+*   
 */
+
+
+*PC Class
+public class PC {
+  private Motherboard motherboard;
+  private Ram ram;
+  private Case case;
+  
+  public PC(Motherboard motherboard, Ram ram, Case case) {
+    this.motherboard = motherboard;
+    this.ram = ram;
+    this.case = case;
+  }
+}
+
+*Motherboard Class
+
+
+
+
