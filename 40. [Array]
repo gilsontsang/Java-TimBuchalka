@@ -1,0 +1,22 @@
+/*
+* Advantages of using an Array... store multiple values of the same type. Data structure that enabled us to store a sequence of values of the same type.
+*/
+
+3 ways to create 10 elements in an Array
+
+1) One-by-one
+int[] myIntArray = new int[10];
+// or double... double[] myDoubleArray = new double[10];
+myIntArray[0] = 6;
+myIntArray[8] = 3;
+myIntArray[9] = 2;
+
+2) Start with an Array
+int[] myIntArray = {0,1,2,3,4,5,6,7,8,9};
+
+3) For-loop
+for (int i=0; i<10; i++) {
+	myIntArray[i] = i;
+}
+
+**Better practice: for (int i=0; i<myIntArray.length; i++) {... }
