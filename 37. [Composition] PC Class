@@ -26,20 +26,27 @@ public class PC {
     this.motherboard = motherboard;
     this.ram = ram;
     this.case = case;
+    motherboard.getMotherBoard();
   }
 }
+
 
 // Motherboard Class
 
 public class Motherboard {
   ...
+  public void getMotherboard() {
+    System.out.println("Retrieved Motherboard");
+  }
 }
+
 
 // Ram Class
 
 public class Ram {
   ...
 }
+
 
 // Case Class
 
