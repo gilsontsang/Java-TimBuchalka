@@ -16,7 +16,7 @@
 */
 
 
-*PC Class
+// PC Class
 public class PC {
   private Motherboard motherboard;
   private Ram ram;
@@ -29,7 +29,23 @@ public class PC {
   }
 }
 
-*Motherboard Class
+// Motherboard Class
+
+public class Motherboard {
+  ...
+}
+
+// Ram Class
+
+public class Ram {
+  ...
+}
+
+// Case Class
+
+public class Case {
+  ...
+}
 
 
 
