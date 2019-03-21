@@ -1,3 +1,49 @@
 /*
-* editHere for Polymorphism
+* Polymorphism is a powerful concept that allows for methods or objects to take on multiple forms - hence the prefix 'poly' as in
+* multiples and 'morph' as in transformation of that thing.
+*
 */
+
+public static void main(String[] args) {
+	Movie movie1 = new Jaws();
+	Movie movie2 = new IndependenceDay();
+	Movie movie3 = new Movie();
+	System.out.println(movie1.plot()); // output: "A shark eats lots of people"
+	System.out.println(movie2.plot()); // output: "End of the world"
+	System.out.println(movie3.plot()); // output: "No Plot here"
+	// Notice .plot() morphed 3 different times
+}
+
+class Movie {
+	private String name;
+
+	public Movie(String name) {
+		this.name = name;
+	}
+
+	public String plot() {
+		return "No Plot here";
+	}
+}
+
+class Jaws extends Movie {
+	public Jaws() {
+		super("Jaws");
+	}
+	
+	@Override
+	public String plot() {
+		returns "A shark eats lots of people";
+	}
+}
+
+class IndependenceDay extends Movie {
+	public IndependenceDay() {
+		super("IndependenceDay");
+	}
+	
+	@Override
+	public String plot() {
+		returns "End of the world";
+	}
+}
