@@ -1,5 +1,5 @@
 /*
-* Advantages of using an Array... store sequence of values of the same type (sequential). 
+* Advantages of using an Array... store sequence of values of the same type (for all primitive types). 
 */
 
 3 ways to create 10 elements in an Array
