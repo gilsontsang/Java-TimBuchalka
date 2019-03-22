@@ -1,5 +1,5 @@
 /*
-* Advantages of using an Array... store multiple values of the same type. Data structure that enabled us to store a sequence of values of the same type.
+* Advantages of using an Array... store sequence of values of the same type (sequential). 
 */
 
 3 ways to create 10 elements in an Array
