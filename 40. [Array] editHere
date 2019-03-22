@@ -2,16 +2,16 @@
 * Advantages of using an Array... store sequence of values of the same type (for all primitive types). 
 */
 
-3 ways to create 10 elements in an Array
+3 ways to initialize an array
 
-1) One-by-one
+1) Saving a value to an element (One value at a time)
 int[] myIntArray = new int[10];
 // or double... double[] myDoubleArray = new double[10];
 myIntArray[0] = 6;
 myIntArray[8] = 3;
 myIntArray[9] = 2;
 
-2) Start with an Array
+2) Define the entire array (All values are defined immediately)
 int[] myIntArray = {0,1,2,3,4,5,6,7,8,9};
 
 3) For-loop
