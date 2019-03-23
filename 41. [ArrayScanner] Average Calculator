@@ -1,0 +1,34 @@
+/*
+* This program retrieves user's integer inputs and outputs the average.
+*/
+
+import java.util.Scanner;
+
+public class averageCalculator {
+    
+    private static Scanner scanner = new Scanner(System.in);
+    public static void main(String args[]) {
+        int[] array = getIntArray(5);
+        for (int i=0; i<array.length; i++) {
+            System.out.println("For i: " + i + " the output is: " + array[i]);
+        }
+        System.out.println("The average is " + getAverage(array));
+    }
+    
+    public static int[] getIntArray(int arraySize) {
+        int[] newArray = new int[arraySize];
+        for (int i=0; i<arraySize; i++) {
+            System.out.println("Please enter a number:\r");
+            newArray[i] = scanner.nextInt();
+        }
+        return newArray;
+    }
+    
+    public static double getAverage(int[] array) {
+        double sum = 0;
+        for (int i=0;i<array.length; i++) {
+            sum += array[i];
+        }
+        return sum / (double) array.length;
+    }
+}
