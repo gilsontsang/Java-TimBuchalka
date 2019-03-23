@@ -19,4 +19,4 @@ for (int i=0; i<10; i++) {
 	myIntArray[i] = i;
 }
 
-**Better practice: for (int i=0; i<myIntArray.length; i++) {... }
+**Better practice similar to th: for (int i=0; i<myIntArray.length; i++) {... }
