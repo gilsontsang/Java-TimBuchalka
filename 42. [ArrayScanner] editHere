@@ -1,0 +1,28 @@
+/*
+* editHere... sorting numbers in descending order!
+*
+* ex. 106, 26, 85, 5, 15 will sort to 106, 85, 26, 15, 5
+*
+*/
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(Sting[] args) {
+    
+  }
+
+  public int[] getIntegers() {
+    return array;
+  }
+  
+  public void printArray() {
+    System.out.println("The numbers in descending order is: " + array);
+  }
+  
+  public int[] sortIntegers() {
+    return array;
+  }
+
+}
+
