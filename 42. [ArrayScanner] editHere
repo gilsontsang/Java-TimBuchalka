@@ -1,28 +1,65 @@
 /*
-* editHere... sorting numbers in descending order!
-*
-* ex. 106, 26, 85, 5, 15 will sort to 106, 85, 26, 15, 5
-*
-*/
+ * editHere... sorting numbers in descending order!
+ *
+ * ex. 106, 26, 85, 5, 15 will sort to 106, 85, 26, 15, 5
+ *
+ */
 
 import java.util.Scanner;
 
 public class Main {
-  public static void main(Sting[] args) {
-    
-  }
+    private static Scanner scanner = new Scanner(System.in);
+    public static void main(String args[]) {
+        int[] array = getIntegers(5);
+        printArray(array);
+        sortIntegers(array);
+    }
 
-  public int[] getIntegers() {
-    return array;
-  }
-  
-  public void printArray() {
-    System.out.println("The numbers in descending order is: " + array);
-  }
-  
-  public int[] sortIntegers() {
-    return array;
-  }
+    public static int[] getIntegers(int lengthOfArray){
+        int[] array = new int[lengthOfArray];
+        System.out.println("Enter " + lengthOfArray + " integers");
+        for (int i=0; i< lengthOfArray; i++) {
+            array[i] = scanner.nextInt();
+        }
+        return array;
+    }
+
+    public static void printArray(int[] array) {
+        System.out.println("The numbers you entered are:");
+        for(int i=0; i<array.length; i++) {
+            System.out.print(" " + array[i]);
+        }
+        System.out.println();
+    }
+
+    public static void sortIntegers(int[] array) {
+        int[] muleArray = new int[array.length];
+        for (int i=0; i<array.length; i++) {
+            muleArray[i] = 0;
+        }
+
+        int testValue = 106;
+        // 106, 26, 85, 5, 15
+        // 0 1 2 3 4
+
+        int[] array2 = {106,26,85,5,15};
+        for (int i=0; i<array2.length - 1; i++) {
+            if (array2[i] < array2[i+1]) {
+                testValue = array2[i+1];
+
+
+            }
+            System.out.println("Printing test value: " + testValue);
+        }
+
+
+
+
+
+        System.out.println("Your sorted integers are:");
+        for(int i=0; i<array.length; i++) {
+            System.out.print(" " + array[i]);
+        }
+    }
 
 }
-
