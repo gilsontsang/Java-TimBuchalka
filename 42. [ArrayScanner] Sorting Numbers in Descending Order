@@ -32,7 +32,6 @@ public class Main {
     }
 
     public static void sortIntegers(int[] array) {
-        int[] muleArray = new int[array.length];
         int muleValue = 0;
         boolean setTrue = true;
         while (setTrue) {
