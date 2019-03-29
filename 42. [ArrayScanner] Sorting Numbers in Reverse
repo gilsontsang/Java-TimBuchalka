@@ -1,5 +1,5 @@
 /*
- * editHere... sorting numbers in descending order!
+ * This program is intended to sort numbers in descending order but so far it only works for the scenario below... will work on this later.
  *
  * ex. 106, 26, 85, 5, 15 will sort to 106, 85, 26, 15, 5
  *
@@ -12,6 +12,7 @@ public class Main {
     public static void main(String args[]) {
         int[] array = getIntegers(5);
         printArray(array);
+        \n
         sortIntegers(array);
     }
 
@@ -29,7 +30,6 @@ public class Main {
         for(int i=0; i<array.length; i++) {
             System.out.print(" " + array[i]);
         }
-        System.out.println();
     }
 
     public static void sortIntegers(int[] array) {
@@ -38,28 +38,22 @@ public class Main {
             muleArray[i] = 0;
         }
 
-        int testValue = 106;
-        // 106, 26, 85, 5, 15
-        // 0 1 2 3 4
-
-        int[] array2 = {106,26,85,5,15};
-        for (int i=0; i<array2.length - 1; i++) {
-            if (array2[i] < array2[i+1]) {
-                testValue = array2[i+1];
-
-
+        int[] array2 = {106, 26, 85, 5, 15};
+        for (int i=0; i<array2.length -1; i++) {
+            int largest = array2[i];
+            if (largest < array2[i+1]) {
+                largest = array2[i+1];
+                array2[i+1] = array2[i];
             }
-            System.out.println("Printing test value: " + testValue);
+            muleArray[i] = largest;
+            System.out.println("muleArray[i] is " + muleArray[i]);
         }
-
-
-
-
+        
 
         System.out.println("Your sorted integers are:");
-        for(int i=0; i<array.length; i++) {
-            System.out.print(" " + array[i]);
+        for(int i=0; i<muleArray.length; i++) {
+            System.out.print(" " + muleArray[i]);
         }
     }
-
+        
 }
