@@ -6,8 +6,8 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 public class Main {
+    private static Scanner scanner = new Scanner(System.in);
     public static void main(String args[]) {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("How many numbers would you like to enter?");
         int numbers = scanner.nextInt();
         System.out.println("Please enter your numbers?");
@@ -18,7 +18,6 @@ public class Main {
     }
     
     public static int[] readIntegers(int count) {
-        Scanner scanner = new Scanner(System.in);
         int[] array = new int[count];
         for (int i=0; i<count; i++) {
             array[i] = scanner.nextInt();
