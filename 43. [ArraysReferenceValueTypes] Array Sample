@@ -1,0 +1,40 @@
+/*
+ * An introduction to Reference and Value types as well as the Arrays class, namely Arrays.toString(array)
+ *
+ */
+
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String args[]) {
+        // Value Type does not point to the same object in memory
+        int value1 = 1;
+        int value2 = value1;
+        
+        System.out.println("value1 is " + value1); // print 1
+        System.out.println("value2 is " + value2); // print 1
+        
+        value2++;
+        
+        System.out.println("value1 is " + value1); // print 1
+        System.out.println("value2 is " + value2); // print 2
+        
+        // However, Reference Type points to the same object in memory
+        
+        // 'reference' an Array
+        int[] array1 = new int[5]; //print [0,0,0,0,0]
+        int[] array2 = array1; //print [0,0,0,0,0]
+        
+        array2[0] = 1;
+        
+        System.out.println("array1 = " + Arrays.toString(array1)); //print [1,0,0,0,0]
+        System.out.println("array2 = " + Arrays.toString(array2)); //print [1,0,0,0,0]
+        
+        // 'de-reference' an Array, creating a new reference in memory
+        array2 = new int[] {2,0,0,0,0};
+        
+        System.out.println("array1 = " + Arrays.toString(array1)); //print [1,0,0,0,0]
+        System.out.println("array2 = " + Arrays.toString(array2)); //print [2,0,0,0,0]
+    }
+}
