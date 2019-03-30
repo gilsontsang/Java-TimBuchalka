@@ -18,6 +18,11 @@ public class Main {
         groceryList.add("fruits");
         groceryList.add("fish");
         groceryList.add("meats");
-        System.out.print("Your grocery list has: " + groceryList);
+        groceryList.remove("meats");
+        System.out.println("Your grocery list has: " + groceryList);
+        System.out.println("There are " + groceryList.size() + " items in your grocery list.");
+        System.out.println("The 2nd item in your grocery list is " + groceryList.get(1));
+        groceryList.set(0,"veggies");
+        System.out.println("The 1st item has been modified with veggies. Here is your new list " + groceryList);
     }
 }
