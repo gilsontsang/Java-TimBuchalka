@@ -18,7 +18,7 @@ public class Main {
         groceryList.add("fruits");
         groceryList.add("fish");
         groceryList.add("meats");
-        groceryList.remove("meats");
+        groceryList.remove("meats"); // Similarly, we can use groceryList.remove(2);
         System.out.println("Your grocery list has: " + groceryList);
         System.out.println("There are " + groceryList.size() + " items in your grocery list.");
         System.out.println("The 2nd item in your grocery list is " + groceryList.get(1));
