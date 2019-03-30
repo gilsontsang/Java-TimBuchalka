@@ -1,0 +1,38 @@
+/*
+ * This program retrieve's the user's input and calculates the minimum number entered.
+ */
+
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String args[]) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("How many numbers would you like to enter?");
+        int numbers = scanner.nextInt();
+        System.out.println("Please enter your numbers?");
+        int[] intArray = readIntegers(numbers);
+        System.out.println("The array is " + Arrays.toString(intArray));
+        int min = findMin(intArray);
+        System.out.println("The minimum element in the array is " + min);
+    }
+    
+    public static int[] readIntegers(int count) {
+        Scanner scanner = new Scanner(System.in);
+        int[] array = new int[count];
+        for (int i=0; i<count; i++) {
+            array[i] = scanner.nextInt();
+        }
+        return array;
+    }
+    
+    public static int findMin(int[] array) {
+        int min = array[0];
+        for (int i=0; i<array.length; i++) {
+            if (min > array[i]) {
+                min = array[i];
+            }
+        }
+        return min;
+    }
+}
