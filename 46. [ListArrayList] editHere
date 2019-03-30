@@ -1,0 +1,19 @@
+/*
+ * List is an ordered collection (sequence)
+ * ArrayList is a re-sizable Array
+ *
+ * A few things to note. When ArrayList arraylist1 is defined as below, () appears. 
+ * That is because ArrayList is a Class and has its own constructor, compared to myNumbers is a primitive type.
+ * ex 1. private ArrayList<String> arraylist1 = new ArrayList<String>();
+ * ex 2. private int[] myNumbers;
+ */
+
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+    
+    public static void main(String args[]) {
+        
+    }
+}
