@@ -1,3 +1,112 @@
 /*
-* This program is is able to store, modify, remove nad query contact names. 
+* This program is used to store, modify, remove and query contact names. 
 */ 
+
+
+// Main Class 
+
+package com.gilson;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+
+    private static Contacts contacts = new Contacts();
+    private static MobilePhone mobilePhone = new MobilePhone();
+    private static Scanner scanner = new Scanner(System.in);
+    private static ArrayList<String> phoneBook = new ArrayList<String>();
+
+    public static void main(String args[]) {
+        boolean runMenu = false;
+
+        while (runMenu != true) {
+
+
+            System.out.println("What would you like to do?");
+            System.out.println("\t Option 1: Add a contact");
+            System.out.println("\t Option 2: Remove a contact");
+            System.out.println("\t Option 3: Modify a contact");
+            System.out.println("\t Option 4: Print current phone book");
+            System.out.println("\t Option 5: Exit the system");
+
+            int userOption = scanner.nextInt();
+
+
+            switch(userOption) {
+                case 1:
+                    mobilePhone.addName();
+                    break;
+                case 2:
+                    mobilePhone.removeName();
+                    break;
+                case 3:
+                    mobilePhone.replaceItem();
+                    break;
+                case 4:
+                    mobilePhone.printContacts();
+                    break;
+                case 5:
+                    runMenu = true;
+            }
+        }
+
+
+    }
+}
+
+
+// Mobile Phone Class 
+
+
+package com.gilson;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class MobilePhone {
+
+    private static Contacts contacts = new Contacts();
+    private static MobilePhone mobilePhone = new MobilePhone();
+    private static Scanner scanner = new Scanner(System.in);
+    private static ArrayList<String> phoneBook = new ArrayList<String>();
+    private static String item;
+
+    public void printContacts() {
+        if (phoneBook.size() == 0) {
+            System.out.println("Your phone book is empty");
+        }
+        else {
+            System.out.println("Your current phone book has the following entries.");
+            for (int i = 0; i < phoneBook.size(); i++) {
+                System.out.println(i + 1 + ". " + phoneBook.get(i));
+            }
+        }
+    }
+
+    public void addName() {
+        System.out.println("Enter the name that you would like to add");
+        item = scanner.nextLine();
+        phoneBook.add(item);
+    }
+
+    public void removeName() {
+        System.out.println("Enter the name that you would like to remove");
+        item = scanner.nextLine();
+        phoneBook.remove(item);
+    }
+
+    public void replaceItem() {
+        System.out.println("Enter the item you want to modify");
+        item = scanner.nextLine();
+        //scanner.nextLine();
+        System.out.println("Enter the replacement item");
+        String newItem = scanner.nextLine();
+        for (int i=0; i<phoneBook.size(); i++) {
+            if (phoneBook.get(i).equals(item)) {
+                phoneBook.set(i,newItem);
+            }
+        }
+    }
+
+}
