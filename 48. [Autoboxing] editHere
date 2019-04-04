@@ -1,0 +1,11 @@
+/*
+Autoboxing
+ex. intArrayList.add(Integer.valueOf(1));
+For this example, we are converting an integer, a base primitive type int to an Integer class. 
+We are taking the primitive type and we're going to the object wrapper - we're going to the class.
+
+Unboxing 
+ex.  intArrayList.get(1).intValue();
+We are taking it from the class or from the object wrapper and converting it back to a primitive type.
+
+*/
