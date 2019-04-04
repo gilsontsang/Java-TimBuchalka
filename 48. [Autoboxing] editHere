@@ -8,4 +8,7 @@ Unboxing
 ex.  intArrayList.get(1).intValue();
 We are taking it from the class or from the object wrapper and converting it back to a primitive type.
 
+Additional example.
+Integer myIntValue = 56; // Java provides the autoboxing of Integer.valueOf(56);
+int myInt = myIntValue; // Java unboxed it through myInt.intValue();
 */
