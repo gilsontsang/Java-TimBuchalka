@@ -7,22 +7,17 @@
 
 package com.gilson;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
-    private static Contacts contacts = new Contacts();
     private static MobilePhone mobilePhone = new MobilePhone();
     private static Scanner scanner = new Scanner(System.in);
-    private static ArrayList<String> phoneBook = new ArrayList<String>();
 
     public static void main(String args[]) {
         boolean runMenu = false;
 
         while (runMenu != true) {
-
-
             System.out.println("What would you like to do?");
             System.out.println("\t Option 1: Add a contact");
             System.out.println("\t Option 2: Remove a contact");
@@ -32,16 +27,15 @@ public class Main {
 
             int userOption = scanner.nextInt();
 
-
             switch(userOption) {
                 case 1:
-                    mobilePhone.addName();
+                    mobilePhone.addContact();
                     break;
                 case 2:
-                    mobilePhone.removeName();
+                    mobilePhone.removeContact();
                     break;
                 case 3:
-                    mobilePhone.replaceItem();
+                    mobilePhone.replaceContact();
                     break;
                 case 4:
                     mobilePhone.printContacts();
@@ -50,14 +44,11 @@ public class Main {
                     runMenu = true;
             }
         }
-
-
     }
 }
 
 
 // Mobile Phone Class 
-
 
 package com.gilson;
 
@@ -66,11 +57,11 @@ import java.util.Scanner;
 
 public class MobilePhone {
 
-    private static Contacts contacts = new Contacts();
     private static MobilePhone mobilePhone = new MobilePhone();
     private static Scanner scanner = new Scanner(System.in);
-    private static ArrayList<String> phoneBook = new ArrayList<String>();
-    private static String item;
+    private static ArrayList<Contacts> phoneBook = new ArrayList<Contacts>();
+    private static String name;
+    private static String phoneNumber;
 
     public void printContacts() {
         if (phoneBook.size() == 0) {
@@ -79,34 +70,68 @@ public class MobilePhone {
         else {
             System.out.println("Your current phone book has the following entries.");
             for (int i = 0; i < phoneBook.size(); i++) {
-                System.out.println(i + 1 + ". " + phoneBook.get(i));
+                System.out.println(i + 1 + ". Name:" + phoneBook.get(i).getName() + " PH# " +
+                         phoneBook.get(i).getPhoneNumber());
             }
         }
     }
 
-    public void addName() {
+    public void addContact() {
         System.out.println("Enter the name that you would like to add");
-        item = scanner.nextLine();
-        phoneBook.add(item);
+        name = scanner.nextLine();
+        System.out.println("Enter the phone number for this contact");
+        phoneNumber = scanner.nextLine();
+        Contacts contacts = new Contacts(name,phoneNumber);
+        phoneBook.add(contacts);
     }
 
-    public void removeName() {
-        System.out.println("Enter the name that you would like to remove");
-        item = scanner.nextLine();
-        phoneBook.remove(item);
-    }
-
-    public void replaceItem() {
-        System.out.println("Enter the item you want to modify");
-        item = scanner.nextLine();
-        //scanner.nextLine();
-        System.out.println("Enter the replacement item");
-        String newItem = scanner.nextLine();
+    public void removeContact() {
+        System.out.println("Enter the contact that you would like to remove");
+        name = scanner.nextLine();
         for (int i=0; i<phoneBook.size(); i++) {
-            if (phoneBook.get(i).equals(item)) {
-                phoneBook.set(i,newItem);
+            if (phoneBook.get(i).getName().equals(name)) {
+                phoneBook.remove(i);
             }
         }
     }
 
+    public void replaceContact() {
+        System.out.println("Enter the item you want to modify");
+        name = scanner.nextLine();
+        for (int i = 0; i < phoneBook.size(); i++) {
+            if (phoneBook.get(i).getName().equals(name)) {
+                System.out.println("Contact found. Enter the replacement contact name.");
+                name = scanner.nextLine();
+                System.out.println("Enter this new contact's new phone number");
+                phoneNumber = scanner.nextLine();
+                Contacts contacts = new Contacts(name, phoneNumber);
+                phoneBook.set(i, contacts);
+            }
+        }
+    }
+
+}
+
+
+// Contacts Class
+
+package com.gilson;
+
+public class Contacts {
+
+    private String name;
+    private String phoneNumber;
+
+    public Contacts(String name, String phoneNumber) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 }
