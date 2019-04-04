@@ -1,5 +1,7 @@
 /*
-* This program is used to store, modify, remove and query contact names. 
+* This program is used to store, modify, remove and query contact names and phone numbers.
+* *Note. To date, this is probably the hardest program to create so far. It took me much longer than needed because I want this 
+* program to polish (4/3/2019).
 */ 
 
 
