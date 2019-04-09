@@ -1,0 +1,236 @@
+/*
+* This program creates a banking software that create new branches, customers and the amount that they have.
+*
+* Please note this program is currently incomplete with the printSummary() method is not retrieving the correct data.
+*/
+
+// Main Class
+
+package com.gilson;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+
+    private static Branch branch = new Branch();
+    private static ArrayList<Customer> customerArray = new ArrayList<Customer>();
+    private static Bank bank = new Bank();
+    private static String name;
+    private static double transaction;
+
+
+    public static void main(String[] args) {
+        boolean cont = true;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Welcome to your Banking System.");
+        System.out.println("Please selection your option - press 0 to see options.");
+        showOptions();
+
+        while(cont != false) {
+
+            System.out.println("\nPress 0 to see options.");
+
+            int choice = scanner.nextInt();
+
+            switch(choice) {
+                case 0:
+                    showOptions();
+                    break;
+                case 1:
+                    bank.addBranch();
+                    break;
+                case 2:
+                    bank.addCustomerToBranch();
+                    break;
+                case 3:
+                    bank.addCustomerTransaction();
+                case 4:
+                    bank.printBranch();
+                    break;
+                case 5:
+                   cont = false;
+            }
+        }
+
+    }
+
+    public static void showOptions() {
+        System.out.println("\t 1. Add new branch");
+        System.out.println("\t 2. Add customer");
+        System.out.println("\t 3. Add transaction to existing customer");
+        System.out.println("\t 4. Print Summary");
+        System.out.println("\t 5. Quit");
+    }
+
+}
+
+
+// Bank Class
+
+    package com.gilson;
+    
+    import java.util.ArrayList;
+    import java.util.Scanner;
+    
+    public class Bank {
+    
+        private Scanner scanner = new Scanner(System.in);
+        private ArrayList<Branch> branchArray = new ArrayList<Branch>();
+    
+        public void addBranch() {
+            Branch branch = new Branch();
+            branchArray.add(branch);
+            System.out.println("New branch added");
+            printBranch();
+        }
+    
+        public void addCustomerToBranch() {
+            System.out.println("Choose the branch number");
+            Integer branchNumber = scanner.nextInt();
+            branchNumber--;
+            branchArray.get(branchNumber).addNewCustomer();
+            branchNumber++;
+            System.out.println("New customer added to branch " + branchNumber);
+            scanner.nextLine();
+            /*
+            for(int i=0; i<branchArray.size(); i++) {
+                if(branchArray.get(i).getName().equals(name)) {
+                    branchArray.get(i).addNewCustomer();
+                    System.out.println("New customer added");
+                    break;
+                }
+            }
+            */
+        }
+    
+        public void addCustomerTransaction() {
+            System.out.println("Add transaction to which customer?");
+            String name = scanner.nextLine();
+            for(int i=0; i<branchArray.size(); i++) {
+                if(branchArray.get(i).getName().equals(name)) {
+                    System.out.println("Enter transaction amount");
+                    Double transaction = scanner.nextDouble();
+                    transaction += branchArray.get(i).getTransaction();
+                    branchArray.get(i).setTransaction(transaction);
+                    System.out.println("The amount of " + transaction + " has been added to customer " + name);
+                    System.out.println("getTransaction is "+ branchArray.get(i).getTransaction());
+                    break;
+                }
+            }
+        }
+    
+        public void printBranch() {
+            for (int i=0; i<branchArray.size(); i++) {
+                System.out.println("Branch " + (i+1) + " ");
+                branchArray.get(i).printSummary();
+            }
+        }
+    }
+
+
+// Branch Class
+
+package com.gilson;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Branch {
+
+    ArrayList<Customer> customerArray = new ArrayList<Customer>();
+    Scanner scanner = new Scanner(System.in);
+    private String name;
+    private double transaction;
+
+
+    public void addNewCustomer() {
+        System.out.println("Add the customer's name");
+        name = scanner.nextLine();
+        System.out.println("Add the customer's initial transaction");
+        transaction = scanner.nextDouble();
+        Customer customer = new Customer(name, transaction);
+        System.out.println("Customer's name is " + customer.getCustomerName());
+        System.out.println("Customer made the transaction of  " + customer.getTransaction());
+        customerArray.add(customer);
+        scanner.nextLine();
+    }
+
+    public void addTransaction() {
+        System.out.println("Which customer would you like to add transaction to?");
+        String name = scanner.nextLine();
+        for (int i=0; i<customerArray.size(); i++) {
+            if (customerArray.get(i).getCustomerName().equals(name)) {
+                System.out.println("Customer found");
+                int index = i;
+                System.out.println("How much more would you like to add?");
+                transaction = scanner.nextDouble();
+                double counter = customerArray.get(i).getTransaction() + transaction;
+                customerArray.get(i).setTransaction(counter);
+                System.out.println("Transaction completed. Your account now has $" + counter);
+                break;
+            }
+            else if (customerArray.size() == 0) {
+                System.out.println("There are no customers");
+            }
+            else {
+                System.out.println("Customer not found");
+            }
+        }
+    }
+
+    public void printSummary() {
+        if (customerArray.size() == 0) {
+            System.out.println("There are no customers");
+        }
+        else {
+            for (int i = 0; i < customerArray.size(); i++) {
+                System.out.println(customerArray.get(i).getTransaction());
+                System.out.println(i + 1 + ". " + customerArray.get(i).getCustomerName() +
+                        " $" + customerArray.get(i).getTransaction());
+            }
+        }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(double transaction) {
+        this.transaction = transaction;
+    }
+
+
+}
+
+// Customer Class
+
+package com.gilson;
+
+public class Customer {
+
+    private String customerName;
+    private double transaction;
+
+    public Customer(String customerName, double transaction) {
+        this.customerName = customerName;
+        this.transaction = transaction;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public double getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(double transaction) {
+        this.transaction = transaction;
+    }
+}
