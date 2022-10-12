@@ -1,0 +1,8 @@
+public class TeenNumberChecker {
+    public static void hasTeen(int num1,int num2,int num3){
+        if(((num1>12&&num1<20)||(num2>12&&num2<20)||(num3>12&&num3<20))){
+            System.out.println("it is a teen");;
+        }else {
+            System.out.println("not a teen");
+        }
+    }
